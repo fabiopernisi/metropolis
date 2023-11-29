@@ -3,7 +3,7 @@
 This repository hosts a notebook that extends the research presented in "Training neural networks using Metropolis Monte Carlo and an adaptive variant" by Whitelam et al. (2022), accessible at [arXiv:2205.07408](https://arxiv.org/abs/2205.07408).
 
 ## Background
-The referenced paper investigates the application of the zero-temperature Metropolis Monte Carlo method for neural network training. This approach aims to minimize a loss function through an algorithm that initially resembles Gradient Descent. In the original version, as described by Whitelam and colleagues, the algorithm updates each network weight $ x_i $ by adding a Gaussian random number $ \epsilon_i $, as follows:
+The referenced paper investigates the application of the zero-temperature Metropolis Monte Carlo method for neural network training. This approach aims to minimize a loss function through an algorithm that initially resembles Gradient Descent. In the original version, as described by Whitelam and colleagues, the algorithm updates each network weight $x_i$ by adding a Gaussian random number $\epsilon_i$, as follows:
 
 $$
 x_i \rightarrow x_i + \epsilon_i, \quad \epsilon_i \sim \mathcal{N}(0, \sigma^2)
