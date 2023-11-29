@@ -9,7 +9,7 @@ $$
 x_i \rightarrow x_i + \epsilon_i, \quad \epsilon_i \sim \mathcal{N}(0, \sigma^2)
 $$
 
-Here, $ \sigma^2 $ is a uniform variance across all weights. The update is accepted only if it results in a non-increasing loss, consistent with the zero-temperature Metropolis algorithm.
+Here, $\sigma^2$ is a uniform variance across all weights. The update is accepted only if it results in a non-increasing loss, consistent with the zero-temperature Metropolis algorithm.
 
 ## Adaptive Monte Carlo Extension
 The paper introduces an adaptive version of the Monte Carlo algorithm (aMC), which proposes weight updates in a more nuanced manner:
@@ -18,19 +18,19 @@ $$
 x_i \rightarrow x_i + \epsilon_i \mathcal{N}(\mu_i, \sigma_i^2)
 $$
 
-In this adaptive approach, both the mean $\mu_i$ and variance $ \sigma_i^2$ of the Gaussian distribution vary for each weight. The mean $ \mu_i$ is adjusted after every accepted move:
+In this adaptive approach, both the mean $\mu_i$ and variance $\sigma_i^2$ of the Gaussian distribution vary for each weight. The mean $\mu_i$ is adjusted after every accepted move:
 
 $$
 \mu_i \rightarrow \mu_i + \epsilon (\epsilon_i - \mu_i)
 $$
 
-Here, $ \epsilon$ is a model hyperparameter. The variance $ \sigma_i $ is adapted using a simple learning-rate schedule: after every $ n_S $ consecutive rejections (denoted `n_reset` in the code), the following updates occur:
+Here, $\epsilon$ is a model hyperparameter. The variance $\sigma_i$ is adapted using a simple learning-rate schedule: after every $n_S$ consecutive rejections (denoted `n_reset` in the code), the following updates occur:
 
 $$
 \sigma_i \rightarrow \sigma_i \times 0.95 \quad \text{and} \quad \mu_i = 0
 $$
 
-Initially, the step-size $ \sigma $ is set to a constant value $ \sigma_0 $.
+Initially, the step-size $\sigma$ is set to a constant value $\sigma_0$.
 
 ## Our Focus
 In this project, we delve into exploring a non-zero-temperature variant of the aMC algorithm. Our aim is to understand its implications and effectiveness in neural network training under different temperature settings.
